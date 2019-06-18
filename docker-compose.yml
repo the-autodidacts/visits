@@ -1,0 +1,13 @@
+# docker-compose needs a version.
+version: '3'
+# The services will be available as hosts. So the redis-server will be available to us
+services: 
+  redis-server: 
+    image: 'redis'
+  # node-app will also build available. It will be built from the Dockerfile.
+  # This is done because we did build . beggining a build from the current directory
+  node-app: 
+    build: .
+    ports: 
+      # the dash siginifies an array.
+      - "8081:8081"
